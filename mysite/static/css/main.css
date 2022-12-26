@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Damion&display=swap');
+
+body {
+    position: relative;
+    display: flex;
+    background-image: linear-gradient(to right, rgb(77, 31, 129), rgb(38, 25, 53));
+    margin: 0;
+    font-family: 'Poppins';
+}
+
+.header {
+    margin-left: 100px;
+    font-family: Damion;
+    font-size: 30px;
+}
+
+.selections {
+    position: relative;
+    background: rgba(163, 154, 226, 0.849);
+    border-radius: 10px;
+    width: 550px;
+    height: 342px;
+    padding-left: 60px;
+    padding-top: 2%;
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 9;
+}
+
+.inputlabel {
+    position: relative;
+    bottom: 80px;
+}
+
+.inputbox[type=text] {
+    transition: width 0.4s ease-in-out;
+    outline: none;
+    border: 1px solid rgb(255, 255, 255);
+    border-bottom: 2px solid rgb(190, 96, 96);
+    border-radius: 5px;
+    height: 20px;
+    width: 40%;
+    box-shadow: none;
+    margin-bottom: 5px;
+}
+
+.inputbox[type=text]:focus {
+    transition: width 0.4s ease-in-out;
+    outline: none;
+    border: 1px solid rgb(255, 255, 255);
+    border-bottom: 2px solid rgb(182, 55, 55);
+    border-radius: 5px;
+    height: 20px;
+    width: 87%;
+    box-shadow: none;
+}
+
+.rangelabel {
+    position: relative;
+    right: 80px;
+}
+
+.timebox {
+    width: 581px;
+    margin-left: 27px;
+    margin-top: 54px;
+}
+
+.timecheckbox {
+    position: relative;
+    margin-left: 55%;
+    bottom: 105px;
+    height: 20px;
+    width: 20px;
+    
+}
+.timecheckboxlabel {
+    position: relative;
+    height: 20px;
+    width: 150px;
+    margin-left: 60%;
+    bottom: 134px;
+}
+
+.startdate[type="date"] {
+    position: relative;
+    margin-left: 331px;
+    bottom: 135px;
+}
+
+.enddate {
+    position: relative;
+    margin-left: 331px;
+    bottom: 104px;
+}
+
+.calenderlabel {
+    position: relative;
+    margin-left: 381px;
+    bottom: 166px;
+    font-size: 30px;
+}
+
+.viewbox {
+    position: absolute;
+    bottom: -80px;
+    left: 35px;
+    z-index: 10;
+}
+
+.submitbutton {
+    cursor: pointer;
+    position: absolute;
+    background-color: #500000;
+    border: 2px solid #500000;
+    color: white;
+    width: 100px;
+    height: 30px;
+    box-shadow: none;
+    border-radius: 3px;
+    left: 266px;
+    bottom:15px;
+    opacity: 0.5;
+}
+
+.dot {
+    position:relative;
+    height: 1px;
+    width: 1px;
+    background-color: #9386ce;
+    border-radius: 50%;
+    top: -126px;
+    left: 140px;
+    display: inline-block;
+  }
+
+/* <!--------------------------------------------> */
+
+.headerresults {
+    text-align: center;
+    font-family: Damion;
+    font-size: 35px;
+    color: ghostwhite;
+}
+
+.resultsheader {
+    font-family: Poppins;
+    text-align: center;
+    margin-top: -1.3%;
+    font-size: 25px;
+    color: ghostwhite;
+}
+
+.selectionsresults {
+    position: relative;
+    margin-top: -205px;
+    border-radius: 8px;
+    width: 96%;
+    height: 900px;
+    margin-left: 2%;
+    background-color: #000000b0;
+    z-index: 9;
+}
+
+.resultsdiv {
+    position: absolute;
+    top: 15%;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.graphdiv{
+    width: 90%;
+    height: 400px;
+    padding-left: 150px;
+    bottom: -317px;
+    position: relative;
+}
+
+ .frequencygraph {
+    height: 400px;
+}
+
+.piegraph {
+    height: 400px;
+}
+
+.wordcloud {
+    height: 320px;
+    margin-bottom: 69px;
+} 
+
+a {
+    color: #FFE37B;
+    text-decoration: none;
+}
+
+.wave-top {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    
+}
+
