@@ -1,8 +1,10 @@
 # Sentiment-Analysis
 
-This GitHub repository contains the code for a sentiment analysis web-interface built with Django. 
+This GitHub repository contains the code for a sentiment analysis web-interface built with Django. The model itself is also found in the 'model' folder. 
 
-The code for the scraping, preprocessing, and evaluation of tweets can be found in the '/home/views.py' file, which is responsible for handling the deployment of the pre-trained model to the web-interface. 
+The sentiment analysis model is developed using the BiLSTM algorithm, trained and tested on the publicly available Stanford Sentiment Dataset.
+
+The code for the scraping, preprocessing, and evaluation of tweets can be found in the 'mysite/home/views.py' file, which is responsible for handling the deployment of the pre-trained model to the web-interface. 
 
 The web page is hosted on a VPS with basic NGINX and UWSGI configuration.
 
