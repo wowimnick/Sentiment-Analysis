@@ -14,14 +14,14 @@ from langdetect import detect
 matplotlib.use('Agg')
 plt.style.use('ggplot')
 
-gpus = tf.config.experimental.list_physical_devices('GPU')
-if gpus:
-    try:
-        tf.config.experimental.set_virtual_device_configuration(gpus[0], 
-            [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=256)])
-        print("Success: GPU memory limit set to 256MB")
-    except RuntimeError as e:
-        print(e)
+# gpus = tf.config.experimental.list_physical_devices('GPU')
+# if gpus:
+#     try:
+#         tf.config.experimental.set_virtual_device_configuration(gpus[0], 
+#             [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=256)])
+#         print("Success: GPU memory limit set to 256MB")
+#     except RuntimeError as e:
+#         print(e)
 
 # The model is loaded as soon as the main page is loaded
 model = tf.keras.models.load_model('home/model')
