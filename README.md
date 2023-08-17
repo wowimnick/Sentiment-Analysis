@@ -2,6 +2,9 @@
 
 NOTE >> THIS PROJECT IS DEPRICATED AND NO LONGER WORKS. Twitter has blocked scrapers from functioning, which this application requires, Twitter now needs an account and user token to search. 
 
+
+
+
 This GitHub repository contains the code for a sentiment analysis web-interface built with Django. The model itself is also found in the 'model' folder. 
 
 The sentiment analysis model is developed using the BiLSTM algorithm, trained and tested on the publicly available Stanford Sentiment Dataset.
