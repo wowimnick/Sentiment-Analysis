@@ -14,88 +14,69 @@
 
 <body class="bodyresults">
     <div class="backlight">
+        
     <div class="selections">
-            <h1 class="header">
-                Sentiment Analysis Model
-            </h1>
-            <form action="{% url 'result' %}" class="forms">
-                    
-                    <div style="display: flex; flex-direction: column; align-items: center;">
-                        <label class="inputlabel" for="inputid">Input Text:</label>
-                        <input class="inputbox" type="text" required name="text" id="inputid" placeholder="Input">
-                    </div>
-                    
-                    <div style="padding-top: 20px; text-wrap: balance;">
-                        <label class="rangelabel" for="range_amount">Number of tweets to gather: </label>
-                        <input type="range" name="amount" id="range_amount" value="100" min="10" max="1000" step="10"
-                            oninput="range_amount_disp.value = range_amount.value">
-                        <output id="range_amount_disp" class="rangeamount" ></output> tweets
-                    </div>
-                    <div class="timebox">
-                        <div>
-                            <input class="timecheckbox" type="checkbox" name="checkbox" id="checkboxid" value="1" checked="True">
-                            <label class="timecheckboxlabel" for="checkboxid">Time Range?</label>
-                        </div>
-                        <input class="startdate" type="date" name="startdate" id="startdate" value=>
-                        <label class="calenderlabel" for="startdate">⇩</label>
-                        <input class="enddate" type="date" name="enddate" id="enddate" value=>
-                        
-                    </div>
+        
+            <div class="section1">
+                <h1 class="header">Sentiment Analysis Model</h1>
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                <label class="inputlabel" for="inputid">Input Text:</label>
+                <input class="inputbox" type="text" required name="text" id="inputid" placeholder="Input">
+                Prediction Score: (0 = Negative, 1 = Positive)
+                <p id="resultslabel" class="resultslabel"><span id="predictions">N/A</span></p>
+            </div>
+        </div>
+            <div class="info">
+                <p>The sentiment analysis model is developed using the BiLSTM algorithm, trained and tested on the publicly available IMDB dataset.</p>
+                <p>Here is an image of the model architecture.</p>
+                <img class="image" src="{% static 'bilstm.png' %}" alt="Model Architecture" width="500">
+                <br>
+                <p>The model is trained on the IMDB dataset, which contains 50,000 movie reviews, and achieves an accuracy of 88.5%.</p>
+                
+            </div>
+    </div>
+    
 
-                <input class="submitbutton" type="submit" name="" value="Submit" id="submitbutton" disabled="disabled">
-    </div>
-    </div>
 
     <!------------------------------------------------------------------------------------------------------------------------------>
-    <script>
-        function getDate() {
-  var today = new Date();
-  var dd = today.getDate();
-  var mm = today.getMonth()+1; 
-  var yyyy = today.getFullYear();
-
-  if(dd<10) {
-      dd = '0'+dd
-  } 
-
-  if(mm<10) {
-      mm = '0'+mm
-  } 
-
-  today = yyyy + '-' + mm + '-' + dd;
-  console.log(today);
-  document.getElementById("startdate").value = today;
-  document.getElementById("enddate").value = today;
-}
-window.onload = function() {
-  getDate();
-};
-    </script>
-
-    <script>
-        $('#checkboxid').change(function(){
-  if($(this).is(':checked'))   
-    $('#startdate').prop("disabled", false),
-    $('#enddate').prop("disabled", false)
-})
-    </script>
-    <script>
-                $('#checkboxid').change(function(){
-        if(!$(this).is(':checked'))  
-            $('#startdate').prop("disabled", true),
-            $('#enddate').prop("disabled", true)
-        })
-    </script>
-
-<script> 
-    anime({ 
-        targets: document.querySelector(".rangeamount"),
-        innerHTML: 100,
-        easing: 'linear',
-        round: 1,
-        delay: 100 // demo purpose
-    }); 
-</script>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<script>
+    $(document).ready(function () {
+        $("#inputid").on('input', function () {
+            var inputText = $(this).val();
+            console.log('Input changed:', inputText);
+            $.ajax({
+                type: "GET",
+                url: "",  // Replace with the URL of your current view
+                data: {
+                    'text': inputText
+                },
+                dataType: "json",
+                success: function (data) {
+                    var predictions = data.predictions;
+                    $('#predictions').text(predictions);
+                    // Add the "changed" class for animation
+                    // Check the value of predictions and change the color to any color from red to green based on the value
+                    if (predictions < 0.5) {
+                        $('#resultslabel').css('color', 'red');
+                    } else if (predictions < 0.75) {
+                        $('#resultslabel').css('color', 'orange');
+                    } else {
+                        $('#resultslabel').css('color', 'green');
+                    }
+                    
+
+                    $('#resultslabel').addClass('flipped');
+
+                    // Remove the "changed" class after a delay to reset the animation
+                    setTimeout(function() {
+                        $('#resultslabel').removeClass('flipped');
+                    }, 200);  // Adjust the delay as needed
+                }
+            });
+        });
+    });
+</script>
 </html>

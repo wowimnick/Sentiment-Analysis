@@ -1,6 +1,6 @@
 # Sentiment-Analysis
 
-NOTE >> THIS PROJECT IS DEPRICATED AND NO LONGER WORKS. Twitter has blocked scrapers from functioning, which this application requires, Twitter now needs an account and user token to search. 
+NOTE >> THIS PROJECT IS DEPRECATED AND NO LONGER WORKS. Twitter has blocked scrapers from functioning, which this application requires, Twitter now needs an account and user token to search. However, the project with simplified into a basic sentiment analysis web app.
 
 
 
